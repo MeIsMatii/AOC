@@ -22,4 +22,5 @@ with open('/home/mati/Documents/AOC/2025/Day1/puzzle1input.txt', 'r') as file:
         if dial == 0:
             counter += 1
 
+
 print(counter)

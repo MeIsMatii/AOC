@@ -2,7 +2,7 @@ import os
 counter = 0 #counts how many zeroes there were
 dial = 50 #dial begins at 50
 
-with open('/home/mati/Documents/AOC/2025/Day1/puzzleInput.txt', 'r') as file:
+with open('puzzleInput.txt', 'r') as file:
     for line in file:
         line = line.strip() #it should be L/R, number 1-infinity
 

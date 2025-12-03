@@ -1,4 +1,4 @@
-inputFile = "/workspaces/AOC/2025/Day3/testInput.txt"
+inputFile = "/workspaces/AOC/2025/Day3/puzzleInput.txt"
 
 totalSum = 0
 with open(inputFile, 'r') as file:

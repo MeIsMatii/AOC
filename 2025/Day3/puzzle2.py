@@ -36,29 +36,29 @@ with open(inputFile, 'r') as file:
         
         for i in range(len(line)):
             currentJoltage = int(line[i])
-            if currentJoltage > number1 and i < len(line) -1:
+            if number1 < currentJoltage and i < len(line) -1:
                 number1 = currentJoltage
                 numberIndex = i
 
-        for i in range(numberIndex + 1,len(line)) and i < len(line) -1:
+        for i in range(numberIndex + 1,len(line)):
             currentJoltage = int(line[i])
-            if number2 < currentJoltage:
+            if number2 < currentJoltage and i < len(line) -1:
                 number2 = currentJoltage    
                 numberIndex = i
         
-        for i in range(len(line)):
+        for i in range(numberIndex + 1, len(line)):
             currentJoltage = int(line[i])
             if currentJoltage > number3 and i < len(line) -1:
                 number3+ i= currentJoltage
                 numberIndex = i    
 
-        for i in range(len(line)):
+        for i in range(numberIndex + 1, len(line)):
             currentJoltage = int(line[i])
             if currentJoltage > number4 and i < len(line) -1:
                 number4+ i= currentJoltage
                 numberIndex = i    
     
-        for i in range(len(line)):
+        for i in range(numberIndex+1, len(line)):
             currentJoltage = int(line[i])
             if currentJoltage > number5 and i < len(line) -1:
                 number5+ i= currentJoltage

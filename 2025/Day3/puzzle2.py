@@ -1,71 +1,35 @@
-inputFile = "/workspaces/AOC/2025/Day3/puzzleInput.txt"
+inputFile = "/workspaces/AOC/2025/Day3/testInput.txt"
+
 
 totalSum = 0
 with open(inputFile, 'r') as file:
     for line in file:
-        number1 = 0
-        number2 = 0
-        number3 = 0
-        number4 = 0
-        number5 = 0
-        number6 = 0
-        number7 = 0
-        number8 = 0
-        number9 = 0
-        number10 = 0
-        number11 = 0
-        number12 = 0
-        numberIndex = 0
+        joltages = []
+        x = 0
+        k = 11
         line = line.strip() #it should be a really long string
-        for number in range(1,12):
-        
-            for i in range(len(line)):
-                currentJoltage = int(line[i])
-                if currentJoltage > number1 and i < len(line) -1:
-                    number1+ i= currentJoltage
-                    numberIndex = i
-            inputFile = "/workspaces/AOC/2025/Day3/puzzleInput.txt"
+        print(line)
+        for i in range(12):
+            numberIndex = 0
+            highestJoltage = 0
+            if numberIndex > 0:
+                x = 1
+            for j in range(numberIndex + x, len(line)):
+                currentJoltage = int(line[j])
+                if highestJoltage < currentJoltage:
+                    if j < len(line)-k +1:
+                        highestJoltage = currentJoltage
+                        numberIndex = j
+                    elif i == 11: #last number
+                        highestJoltage = currentJoltage
+                        numberIndex = j
+            joltages.append(highestJoltage)
+            k-=1
+                
+        print(joltages)
+        for i in range(len(joltages)):
+            totalSum += joltages[i] * (10 ** (11 - i)) #to place the digits in the correct position (first is 10**11, second 10**10 and last 10*0)
+        #totalSum += int(str(highestJoltage) + str(number2) + str(number3) + str(number4) + str(number5) + str(number6) + str(number7) + str(number8) + str(number9) + str(number10) + str(number11) + str(number12))
 
-totalSum = 0
-with open(inputFile, 'r') as file:
-    for line in file:
-        number1 = 0
-        number2 = 0
-        number1index = 0
-        line = line.strip() #it should be a really long string
-        
-        for i in range(len(line)):
-            currentJoltage = int(line[i])
-            if number1 < currentJoltage and i < len(line) -1:
-                number1 = currentJoltage
-                numberIndex = i
-
-        for i in range(numberIndex + 1,len(line)):
-            currentJoltage = int(line[i])
-            if number2 < currentJoltage and i < len(line) -1:
-                number2 = currentJoltage    
-                numberIndex = i
-        
-        for i in range(numberIndex + 1, len(line)):
-            currentJoltage = int(line[i])
-            if currentJoltage > number3 and i < len(line) -1:
-                number3+ i= currentJoltage
-                numberIndex = i    
-
-        for i in range(numberIndex + 1, len(line)):
-            currentJoltage = int(line[i])
-            if currentJoltage > number4 and i < len(line) -1:
-                number4+ i= currentJoltage
-                numberIndex = i    
-    
-        for i in range(numberIndex+1, len(line)):
-            currentJoltage = int(line[i])
-            if currentJoltage > number5 and i < len(line) -1:
-                number5+ i= currentJoltage
-                numberIndex = i    
-    
-    
-        
-        totalSum += int(str(number1) + str(number2) + str(number3) + str(number4) + str(number5) + str(number6) + str(number7) + str(number8) + str(number9) + str(number10) + str(number11) + str(number12))
-        print(totalSum)
-print(number1,number2)
+print(totalSum)
+#print(number1,number2)

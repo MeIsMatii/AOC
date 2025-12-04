@@ -1,4 +1,4 @@
-inputFile = "/workspaces/AOC/2025/Day3/testInput.txt"
+inputFile = "/home/mati/Documents/AOC/2025/Day3/puzzleInput.txt"
 
 
 totalSum = 0
@@ -8,12 +8,12 @@ with open(inputFile, 'r') as file:
 
         line = line.strip() #it should be a really long string
         print(line)
-
+        numberIndex = 0
         for i in range(12):
-            numberIndex = 0
+            
             highestJoltage = 0
             x = 0
-            k = 11 - i
+            k = 12 - i
 
             if i > 0:
                 x = 1
@@ -26,6 +26,7 @@ with open(inputFile, 'r') as file:
                     if j < len(line):
                         highestJoltage = currentJoltage
                         numberIndex = j
+            #if highestJoltage != 0:
             joltages.append(highestJoltage)
             k-=1
                 
@@ -35,5 +36,5 @@ with open(inputFile, 'r') as file:
             totalSum += joltages[i] * (10 ** (11 - i)) #to place the digits in the correct position (first is 10**11, second 10**10 and last 10*0)
         #totalSum += int(str(highestJoltage) + str(number2) + str(number3) + str(number4) + str(number5) + str(number6) + str(number7) + str(number8) + str(number9) + str(number10) + str(number11) + str(number12))
 
-#print(totalSum)
+print(totalSum)
 #print(number1,number2)

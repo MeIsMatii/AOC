@@ -1,41 +1,41 @@
 inputFile = "/home/mati/Documents/AOC/2025/Day4/testInput.txt"
 
-def do_something(array):
+def do_something(grid):
     reachablePaper = 0
-    newArray = list(array)
+    newGrid = list(grid)
 
-    for y in range(len(array)):
-        for x in range(len(array[y])):
+    for y in range(len(grid)):
+        for x in range(len(grid[y])):
             paperCounter = 0
-            if array[y][x] != '@':
+            if grid[y][x] != '@':
                 continue
             for ny in range(y-1, y+2):
                 for nx in range(x-1, x+2):
                     if nx == x and ny == y:
                         continue
-                    if nx >= 0 and nx < len(array[y]) and ny >= 0 and ny < len(array): #if its not "out of bounds"
-                        if array[ny][nx] == '@':
+                    if nx >= 0 and nx < len(grid[y]) and ny >= 0 and ny < len(grid): #if its not "out of bounds"
+                        if grid[ny][nx] == '@':
                             paperCounter += 1
             if paperCounter < 4:
                 reachablePaper += 1
-                newArray[y][x] = '.'
-    array = newArray
+                newGrid[y][x] = '.'
+    grid = newGrid
     return(reachablePaper)
                 
 
 reachablePaper = 0
-array = []
+grid = []
 with open(inputFile, 'r') as file:
     for line in file:
         line = line.strip()
-        array.append(list(line))
+        grid.append(list(line))
 
 check = False
 while check == False:
     temp = reachablePaper
 
-    reachablePaper += do_something(array)
-    
+    reachablePaper += do_something(grid)
+
     if temp == reachablePaper:
         check = True
 print(reachablePaper)

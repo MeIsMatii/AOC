@@ -6,7 +6,7 @@ with open(inputFile, 'r') as file:
     for line in file:
         line = line.strip()
         array.append(list(line))
-        
+newArray = array
 for y in range(len(array)):
     for x in range(len(array[y])):
         paperCounter = 0

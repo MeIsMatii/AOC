@@ -29,18 +29,6 @@ for idIndex in range(len(productIds)):
             continue
         else:
             validProducts += 1
-            # print(f"Valid product found: {product}")
             break
-        # for j in range(int(idRanges[i][0]), int(idRanges[i][1])+1):
-        #     if check:
-        #         check = False
-        #         break
-        #     if product == j:
-        #         validProducts += 1
-        #         print(f"Valid product found: {product}")
-        #         check = True
-        #         break
-        #     print(f"Checking product {product} against range {j}")
-
 
 print(validProducts)

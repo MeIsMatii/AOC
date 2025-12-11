@@ -11,31 +11,37 @@ for i in range(len(grid[0])):
     
 grid[1][shipPosX] = '|'
 
-
+splits = 0
 beams = 1
-while beams > 0:
-    beams = 0
-    for i in range(len(grid)):
-        for j in range(len(grid[i])):
-            if str(grid[i][j]) != '|':
-                continue
-        
-            beams +=1
-            beamPos = (i,j)
 
-            for i in range(len(grid)):
-                grid[i][j] = '.'
-                if i == len(grid) - 1:
-                    beams -= 1
-                    break
-                if str(grid[i+1][j]) != '^':
-                    grid[i+1][j] = '|'
-                else:
-                    if j - 1 >= 0:
-                        grid[i+1][j-1] = '|'
-                    if j + 1 < len(grid[i]):
-                        grid[i+1][j+1] = '|'
-                    
+for i in range(len(grid)):
+    print(''.join(grid[i]))
+
+for i in range(1,len(grid) -1 ):
+    for j in range(len(grid[i])):
+        if str(grid[i][j]) != '|':
+            continue
+
+        for k in range(len(grid)):
+            if k == len(grid) - 1:
+                break
+            if str(grid[i+1][j]) != '^':
+                grid[i+1][j] = '|'
+            else:
+                splits += 1
+                if k - 1 >= 0:
+                    beams += 1
+                    grid[i+1][j-1] = '|'
+                if k + 1 < len(grid[i]):
+                    beams += 1
+                    grid[i+1][j+1] = '|'
+                for x in range(len(grid)):
+                    print(''.join(grid[x]))
+                print('------------')
+
+print(splits)   
+for i in range(len(grid)):
+    print(''.join(grid[i]))
 # beams = [shipPosX]
 # for i in range(len(grid)):
 #     if str(grid[i][shipPosX]) != '^':
